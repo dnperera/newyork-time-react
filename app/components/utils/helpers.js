@@ -37,6 +37,15 @@ var helper = {
 			}
 
 		});
+	},
+
+	saveArticle:function(title,snippet,link,pubDate){
+		var saveArticle = {title:title,link:link,published:pubDate};
+		return axios.post("/api/saved",saveArticle)
+		.then(function(res){
+			console.log('axios result',res.data._id);
+			return res.data._id;
+		});
 	}
 
 };

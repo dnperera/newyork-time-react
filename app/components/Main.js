@@ -17,6 +17,14 @@ var Main = React.createClass({
   	// 	helpers.getArticles
   	// }
 
+  	saveArticle(title,snippet,link,pubDate){
+
+  		helpers.saveArticle(title,snippet,link,pubDate)
+  		.then(function(data){
+  			console.log(data);
+  		}.bind(this));
+    },
+
   	componentDidUpdate: function() {
   		helpers.runQuery(this.state.title,
   			this.state.startYear,
@@ -33,9 +41,9 @@ var Main = React.createClass({
 	    return (
 	      <div className="container">
 	        <div className="row">
-	          <div className="jumbotron">
+	          {/*<div className="jumbotron">
 	            <h2 className="text-center">New York Times Articles!</h2>
-	          </div>
+	          </div>*/}
 
 	          <div className="col-md-6">
 
@@ -45,7 +53,7 @@ var Main = React.createClass({
 
 
 	          <div className="col-md-6">
-	            <Results newsArticles={this.state.newsHeadlines} />
+	            <Results newsArticles={this.state.newsHeadlines} saveArticle={this.saveArticle}/>
 
 	          </div>
 

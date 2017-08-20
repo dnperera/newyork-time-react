@@ -32,17 +32,18 @@ var routes = require("./controller/api-routes.js");
 
 app.use("/", routes);
 
-
-// MongoDB Configuration configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://localhost/addmern");
-var db = mongoose.connection;
-
-db.on("error", function(err) {
-  console.log("Mongoose Error: ", err);
-});
-
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var db = process.env.MONGODB_URI || "mongodb://localhost/addmern";
+// Connect mongoose to our database
+mongoose.connect(db, function(error) {
+  // Log any errors connecting with mongoose
+  if (error) {
+    console.log(error);
+  }
+  // Or log a success message
+  else {
+    console.log("mongoose connection is successful");
+  }
 });
 
 // Listener

@@ -13,6 +13,12 @@
 	
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style type="text/css">
+
+		body {
+		    background-image: url("/assets/images/news-background.jpg");
+		    background-color: #fff;
+		    background-repeat: repeat-y;
+		}
 		.viewArticles {
 			margin-right: 10px;
 			margin-left: 20px !important;
@@ -34,7 +40,7 @@
 		}
 
 		#viewArticles {
-			margin-right: 10px;
+			margin-right: 50px;
 			margin-left: 20px !important;
 		}
 	</style>
@@ -47,9 +53,8 @@
 	      <span class="navbar-brand">NewYork Times News</span>
 	    </div>
 	    <ul class="nav navbar-nav navbar-right">
-			<li><button id="viewArticles" class="btn btn-success navbar-btn">Search</button></li>
-		    
-		    <li><button id="savedArticles" class="btn btn-primary navbar-btn">Saved  Articles</button></li>
+			<li><a href="/"><button id="viewArticles" class="btn btn-info navbar-btn">Search</button></a></li>
+
 		 </ul>
 	  </div>
 	</nav>

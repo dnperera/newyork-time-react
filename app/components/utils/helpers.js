@@ -40,11 +40,26 @@ var helper = {
 	},
 
 	saveArticle:function(title,snippet,link,pubDate){
-		var saveArticle = {title:title,link:link,published:pubDate};
+		var saveArticle = {title:title,snippet:snippet,link:link,published:pubDate};
 		return axios.post("/api/saved",saveArticle)
 		.then(function(res){
 			console.log('axios result',res.data._id);
 			return res.data._id;
+		});
+	},
+
+	getsavedArticles:function(){
+		return axios.get("/api/saved")
+		.then(function(res){
+			return res;
+		});
+	},
+
+	deleteSelectedArticle:function(id){
+		//api call for delete
+		return axios.delete("/api/"+id)
+		.then(function(res){
+			return res;
 		});
 	}
 

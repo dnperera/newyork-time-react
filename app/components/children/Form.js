@@ -1,4 +1,4 @@
-// Include React
+ // Include React
 var React = require("react");
 
 // Creating the Form component
@@ -47,23 +47,16 @@ var Form = React.createClass({
   // Here we describe this component's render method
   render: function() {
     return (
-      <div className="panel panel-default">
+      <div className="panel panel-primary">
         <div className="panel-heading">
-          <h3 className="panel-title text-center">Query</h3>
+          <h3 className="panel-title text-center">Search</h3>
         </div>
-        <div className="panel-body text-center">
-          <form onSubmit={this.handleSubmit}>
+        <div className="panel-body text-left">
+          <form onSubmit={this.handleSubmit} className="form-horizontal">
             <div className="form-group">
-
-
-              {/*
-                Note how each of the form elements has an id that matches the state.
-                This is not necessary but it is convenient.
-                Also note how each has an onChange event associated with our handleChange event.
-              */}
-              <h4>Topic</h4>
+              <label className="control-label col-sm-4" for="email">Search Topic:</label>
+              <div className="col-sm-8">
               <input
-                // fix below code
                 value={this.state.title}
                 type="text"
                 className="form-control text-left"
@@ -71,33 +64,37 @@ var Form = React.createClass({
                 onChange={this.handleTitleChange}
                 required
               />
-              <h4>Start Year</h4>
+              </div>
+            </div>
+            <div className="form-group">
+              <label className="control-label col-sm-4" for="stYear">Start Year:</label>
+              <div className="col-sm-8"> 
               <input
-                // fix below code
                 value={this.state.start}
                 type="text"
                 className="form-control text-left"
                 id="start"
                 onChange={this.handleStartChange}
-                
+                required
               />
-              <h4>End Year</h4>
-              <input
-                // fix below code
-                value={this.state.end}
-                type="text"
-                className="form-control text-left"
-                id="end"
-                onChange={this.handleEndChange}
-                
-              />
-              <br />
-              <button
-                className="btn btn-primary"
-                type="submit"
-              >
-                Submit
-              </button>
+              </div>
+              </div>
+              <div className="form-group">
+                <label className="control-label col-sm-4" for="endYear">End Year:</label>
+                <div className="col-sm-8"> 
+                <input
+                  value={this.state.end}
+                  type="text"
+                  className="form-control text-left"
+                  id="end"
+                  onChange={this.handleEndChange}
+                />
+                </div>
+              </div>
+            <div className="form-group"> 
+              <div className="col-sm-offset-2 col-sm-10 text-center" >
+                <button type="submit" className="btn btn-success">Submit</button>
+              </div>
             </div>
           </form>
         </div>

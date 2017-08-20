@@ -10,6 +10,10 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  snippet:{
+    type: String,
+    required: true
+  },
   // link is a required string
   link: {
     type: String,

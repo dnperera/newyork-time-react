@@ -23,10 +23,6 @@ router.get("/api/saved", function(req, res) {
 
 // Save selected article
 router.post("/api/saved", function(req, res) {
-	
-	console.log(req.body.title);
-	console.log(req.body.link);
-	console.log(req.body.published);
 
 	var newArticle = new Article(req.body);
 	newArticle.save(function(error, doc) {
@@ -42,7 +38,7 @@ router.post("/api/saved", function(req, res) {
 
 //Delete selected Article
 router.delete("/api/:id", function(req, res) {
-
+	console.log('Delete Rec ID==>',req.params.id)
 	Article.remove({"_id":req.params.id}, function(err,removed) {
 		if(err){
 			res.send(err);
